@@ -8,7 +8,7 @@ Os pontos vulneráveis associados à solução IoT CaTree envolvem a fácil aces
 
 *Phishing* - Um agente mal intencionado, fingindo ser membro do grupo CaTree pode entrar em contato com os usuários do sistema solicitando as credenciais Ubidots. A partir disso, ele tem acesso aos dados referentes ao Compressor Schulz do IPT. 
 
-*Ameaça Interna* - Um funcionário do IPT pode conectar seu computador fisicamente ao ESP32 da solução IoT e alterar o código como forma de prejudicar as leituras ou roubar credenciais dos demais funcionários imprimindo essas informações no Monitor Serial. 
+*Exploração Firmware* - Um funcionário do IPT pode conectar seu computador fisicamente ao ESP32 da solução IoT e alterar o código como forma de prejudicar as leituras ou roubar credenciais dos demais funcionários imprimindo essas informações no Monitor Serial e enviar dados falsos para a Ubidots.
 
 *Man-in-the-Middle* - Ocorre quando um invasor intercepta a comunicação entre dois dispositivos que acreditam estar se comunicando diretamente e de forma segura. No caso de dispositivos IoT, como no exemplo com o Ubidots, os dados trafegam entre o dispositivo IoT (ESP32) e o servidor da plataforma, podendo incluir informações críticas como leituras de sensores (temperatura e vibração), comandos de controle ou autenticações.
 
@@ -21,8 +21,6 @@ Os pontos vulneráveis associados à solução IoT CaTree envolvem a fácil aces
 *Ataque de Perturbação Eletromagnética (EMI)* - Geração intencional de sinais eletromagnéticos para interferir no funcionamento de sensores ou dispositivos eletrônicos, resultando em leituras incorretas, falhas no sistema ou interrupção da comunicação. - Carol Pascarelli
 
 *Ataque de Falsificação de Requisição entre Sites (CSRF)* - O invasor pode induzir um usuário autorizado a executar uma ação maliciosa sem seu consentimento, como alterar configurações da conta na Ubidots ou modificar permissões de dispositivos. Por exemplo, um e-mail contendo um link malicioso pode disparar uma requisição para excluir um dispositivo registrado.
- 
-*Ataque de Exploração de Firmware* - Um invasor pode explorar vulnerabilidades no firmware do ESP32, utilizando exploits para assumir controle total do dispositivo. Isso pode incluir alterar a programação do dispositivo, desabilitar sensores ou enviar dados falsos para a Ubidots.
 
 *Cavalo de Troia* - Um aplicativo aparentemente legítimo usado para monitorar ou configurar o ESP32 pode conter um Cavalo de Troia. Ao ser executado, ele pode capturar credenciais do sistema, manipular dados do dispositivo ou instalar backdoors para acesso remoto não autorizado.
 
@@ -31,15 +29,14 @@ Os pontos vulneráveis associados à solução IoT CaTree envolvem a fácil aces
 | **Ataque** | **Nível de Impacto** | **Nível de Risco** |
 |----------|----------|----------|
 | Phishing | Médio | Baixo |
-| Ameaça Interna | Alto | Baixo |
+| Exploração de Firmware| Alto | Baixo |
 | Man-in-the-Middle | Alto | Baixo | 
 | Ataque DoS | Médio - Alto | Baixo |
 | Ataque de malware |Médio | Médio |
 | Ataque de Perturbação Eletromagnética (EMI) | Médio | Baixo |
-| Falsificação de Requisição entre Sites (CSRF)|Alto |Médio |
-| Força Bruta | Alto | Alto |
-|Exploração de Firmware|Crítico |Alto |
-| Cavalo de Troia | Crítico | Alto |
+| Falsificação de Requisição entre Sites (CSRF) |Alto | Médio |
+| Força Bruta | Alto | Baixo |
+| Cavalo de Troia | Alto | Baixo |
 
 
 ## **Tabela de Contribuições Individuais**
@@ -49,7 +46,7 @@ Os pontos vulneráveis associados à solução IoT CaTree envolvem a fácil aces
 | Andre | DoS | 
 | Carol |Ataque de Malwere| 
 | Felipe | Apresentação e EMI |
-| Fernanda | Pontos vulneráveis, Phising e Ameaça Interna | 
+| Fernanda | Pontos vulneráveis, Phising e Exploração de Firmware | 
 | Igor | Força Bruta | 
 | Lucca |Man-in-the-Middle| 
 | Raul | CSRF, Exploração de Firmwere e Cavalo de Troia |
